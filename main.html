@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#17191c">
+<title>Ofertă de preț | Stefan Premium Construct</title>
+<style>
+:root{--bg:#f2f3f5;--paper:#fff;--ink:#202329;--muted:#68717d;--line:#dfe3e8;--dark:#17191c;--gold:#c69a52;--soft:#f8f8f9;--danger:#b42318}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.4 Arial,Helvetica,sans-serif}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.app{max-width:1120px;margin:0 auto;padding:16px}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.toolbar-group{display:flex;gap:8px;flex-wrap:wrap}
+.btn{border:0;border-radius:10px;padding:11px 14px;min-height:42px;font-weight:700}
+.btn-dark{background:var(--dark);color:white}.btn-gold{background:var(--gold);color:#17191c}
+.btn-light{background:white;color:var(--ink);border:1px solid var(--line)}
+.btn-danger{background:#fff1f0;color:var(--danger);border:1px solid #ffd6d2}
+.sheet{background:var(--paper);border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 28px #1111110b;padding:clamp(15px,3vw,30px)}
+header{display:flex;justify-content:space-between;align-items:center;gap:18px;border-bottom:2px solid var(--dark);padding-bottom:14px;margin-bottom:18px}
+.logo{width:420px;max-width:68%;max-height:145px;object-fit:contain;object-position:left center;display:block}
+.company{flex:0 0 auto}
+.company{text-align:right;font-size:12px;line-height:1.55;color:#454b53}
+.company strong{font-size:13px;letter-spacing:.05em;color:var(--ink)}
+.title{text-align:center;margin:16px 0 20px}
+.title h1{font-size:25px;letter-spacing:.15em;margin:0 0 4px}
+.title p{margin:0;color:var(--muted);font-size:12px}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:11px 18px;margin-bottom:22px}
+.field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.field label{font-size:11px;font-weight:bold;color:#555d67}
+.field input,.field select,.notes textarea{width:100%;min-height:39px;padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);outline:none}
+.section-title{font-size:12px;letter-spacing:.08em;font-weight:bold;margin:22px 0 8px;padding-bottom:6px;border-bottom:1px solid #aeb4bc}
+.table-wrap{border:1px solid var(--line);border-radius:10px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:760px}
+thead{display:table-header-group}
+th{background:#f0f1f3;color:#4b535d;font-size:10px;text-transform:uppercase;letter-spacing:.04em;text-align:left;padding:9px 7px}
+td{border-top:1px solid var(--line);padding:6px 7px;vertical-align:middle}
+tr.group-row td{background:#faf6ee;color:#5b4729;font-size:11px;font-weight:bold;letter-spacing:.05em;padding:8px}
+td input,td select{width:100%;min-width:0;border:1px solid transparent;border-radius:5px;background:transparent;padding:7px 5px;color:var(--ink);outline:none}
+td input:focus,td select:focus{background:#fff;border-color:var(--gold)}
+td .description{min-width:190px}
+td .qty{min-width:68px;text-align:right}
+td .unit{min-width:65px}
+td .price{min-width:82px;text-align:right}
+td.total{text-align:right;white-space:nowrap;font-weight:bold;padding-right:10px}
+.num{text-align:right}
+.del-cell{width:38px;text-align:center}
+.del{border:0;background:#fff0ef;color:var(--danger);border-radius:6px;padding:5px 9px;font-weight:bold}
+.add-controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.summary{width:min(380px,100%);margin:18px 0 0 auto;border-top:1px solid var(--line);font-size:13px}
+.summary-line{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--line)}
+.summary-line input{width:115px;text-align:right;border:1px solid var(--line);border-radius:6px;padding:5px}
+.grand{font-size:17px;font-weight:bold;border-bottom:2px solid var(--dark)}
+.notes{margin-top:20px}
+.notes label{font-size:11px;font-weight:bold;color:#555d67;display:block;margin-bottom:5px}
+.notes textarea{min-height:60px;resize:vertical}
+.signatures{display:grid;grid-template-columns:1fr 1fr;gap:55px;margin-top:45px;text-align:center;font-size:12px}
+.signatures div{border-top:1px solid #60656b;padding-top:7px}
+.footer-note{font-size:10px;color:#777;margin-top:18px;text-align:center}
+
+.signature-block{margin-top:34px}
+.signature-block .signature-title{font-size:11px;font-weight:bold;color:#555d67;margin-bottom:7px}
+.signature-pad-wrap{border:1px solid var(--line);border-radius:9px;background:#fff;overflow:hidden}
+#executorSignature{display:block;width:100%;height:150px;touch-action:none;background:#fff;cursor:crosshair}
+.signature-tools{display:flex;justify-content:flex-end;gap:7px;margin-top:7px}
+.signature-tools .btn{min-height:34px;padding:7px 11px;font-size:12px}
+.signature-caption{font-size:10px;color:var(--muted);margin-top:5px}
+@media print{
+ .signature-block{break-inside:avoid;margin-top:22px}
+ #executorSignature{height:105px;border:0}
+ .signature-pad-wrap{border:0;border-bottom:1px solid #555;border-radius:0}
+ .signature-tools,.signature-caption{display:none!important}
+}
+
+@media(max-width:650px){
+ .app{padding:8px}.toolbar{align-items:stretch}.toolbar-group{display:grid;grid-template-columns:1fr 1fr;width:100%}.toolbar .btn{width:100%;font-size:13px;padding:10px 8px}
+ .sheet{padding:13px;border-radius:12px}
+ header{align-items:center;flex-direction:column;gap:8px}.logo{width:min(100%,360px);max-width:100%;max-height:125px;object-position:center}.company{font-size:10px;text-align:center}
+ .title h1{font-size:21px}.meta{grid-template-columns:1fr;gap:9px}
+ .table-wrap{overflow:visible;border:0}
+ table{min-width:0;border-collapse:separate;border-spacing:0 9px}
+ thead{display:none}
+ tbody{display:block}
+ tr.work-row{display:grid;grid-template-columns:1fr 1fr;gap:7px;background:#fff;border:1px solid var(--line);border-radius:11px;padding:10px;position:relative}
+ tr.work-row td{display:block;border:0;padding:0;min-width:0}
+ tr.work-row td:nth-child(1){display:none}
+ tr.work-row td:nth-child(2){grid-column:1 / -1}
+ tr.work-row td:nth-child(2)::before{content:"Denumire lucrare";display:block;font-size:10px;color:var(--muted);font-weight:bold;margin:0 0 2px}
+ tr.work-row td:nth-child(3)::before{content:"Cantitate";display:block;font-size:10px;color:var(--muted);font-weight:bold;margin:0 0 2px}
+ tr.work-row td:nth-child(4)::before{content:"Unitate";display:block;font-size:10px;color:var(--muted);font-weight:bold;margin:0 0 2px}
+ tr.work-row td:nth-child(5)::before{content:"Preț unitar (lei)";display:block;font-size:10px;color:var(--muted);font-weight:bold;margin:0 0 2px}
+ tr.work-row td:nth-child(6)::before{content:"Total (lei)";display:block;font-size:10px;color:var(--muted);font-weight:bold;margin:0 0 2px}
+ tr.work-row td:nth-child(7){position:absolute;right:8px;top:8px}
+ tr.work-row td:nth-child(2) input{padding-right:36px;font-weight:600}
+ tr.work-row td input,tr.work-row td select{border:1px solid var(--line);background:#fafafa;padding:9px 7px;border-radius:7px}
+ tr.work-row td.total{background:#f7f3eb;border-radius:7px;padding:9px;text-align:right}
+ tr.group-row{display:block;margin-top:13px}
+ tr.group-row td{display:block;border-radius:7px;padding:9px}
+ .del{padding:6px 10px}
+ .summary{width:100%}
+ .signatures{gap:22px;margin-top:38px}
+}
+@page{size:A4 portrait;margin:12mm}
+@media print{
+ html,body{background:#fff!important;margin:0!important;padding:0!important;font-size:10pt}
+ .app{max-width:none;margin:0;padding:0}
+ .toolbar,.add-controls,.del-cell{display:none!important}
+ .sheet{border:0;box-shadow:none;border-radius:0;padding:0}
+ header{margin-bottom:12px;padding-bottom:10px}
+ .logo{width:330px;max-width:65%;max-height:112px}
+ .title{margin:10px 0 14px}
+ .title h1{font-size:19pt}
+ .title p{font-size:9pt}
+ .meta{gap:7px 16px;margin-bottom:14px}
+ .field label{font-size:8pt}
+ .field input{border:0;border-bottom:1px solid #999;border-radius:0;min-height:24px;padding:3px 1px;font-size:9pt}
+ .section-title{font-size:9pt;margin:15px 0 5px;padding-bottom:4px}
+ .table-wrap{overflow:visible;border:1px solid #bbb;border-radius:0}
+ table{min-width:0;width:100%;font-size:8.5pt;table-layout:fixed}
+ th{font-size:7pt;padding:6px 5px}
+ td{padding:4px 5px;break-inside:avoid}
+ td input,td select{border:0!important;background:transparent!important;padding:2px 1px;font-size:8.5pt;box-shadow:none!important;color:#000!important}
+ td .description{min-width:0}
+ td .qty,td .unit,td .price{min-width:0}
+ tr.group-row{break-after:avoid}
+ tr.group-row td{padding:6px;font-size:8pt}
+ .summary{margin-top:12px;font-size:9pt}
+ .summary-line{padding:5px 0}
+ .summary-line input{border:0;border-bottom:1px solid #999;border-radius:0;padding:2px;font-size:9pt}
+ .grand{font-size:12pt}
+ .notes{margin-top:12px}
+ .notes textarea{border:0;border-bottom:1px solid #999;border-radius:0;min-height:36px;padding:3px;font-size:9pt}
+ .signatures{margin-top:32px;gap:45px;font-size:9pt}
+ .footer-note{font-size:7pt;margin-top:10px}
+ tr{break-inside:avoid;page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="toolbar">
+    <div><strong>Generator ofertă</strong><div style="font-size:12px;color:#68717d">Stefan Premium Construct · CIF 49591155</div></div>
+    <div class="toolbar-group">
+      <button class="btn btn-light" onclick="addWork()">＋ Adaugă manoperă</button>
+      <button class="btn btn-light" onclick="addGroup()">＋ Adaugă categorie</button>
+      <button class="btn btn-gold" onclick="window.print()">Printează / PDF</button>
+      <button class="btn btn-dark" onclick="resetForm()">Resetează</button>
+    </div>
+  </div>
+
+  <main class="sheet">
+    <header>
+      <img class="logo" src="logo-spc.png" alt="Stefan Premium Construct">
+      <div class="company"><strong>STEFAN PREMIUM CONSTRUCT</strong><br>CIF: <strong>49591155</strong><br>Ofertă de preț pentru lucrări</div>
+    </header>
+    <div class="title"><h1>OFERTĂ DE PREȚ</h1><p>Lucrări de renovare și amenajare interioară</p></div>
+
+    <section class="meta">
+      <div class="field"><label>BENEFICIAR</label><input placeholder="Numele beneficiarului"></div>
+      <div class="field"><label>DATA OFERTEI</label><input type="date" id="offerDate"></div>
+      <div class="field"><label>LOCAȚIA LUCRĂRII</label><input placeholder="Adresa / localitatea"></div>
+      <div class="field"><label>NUMĂR OFERTĂ</label><input placeholder="Număr ofertă"></div>
+    </section>
+
+    <div class="section-title">LISTA LUCRĂRILOR ȘI MANOPEREI</div>
+    <div class="table-wrap">
+      <table id="works">
+        <colgroup><col style="width:4%"><col style="width:35%"><col style="width:12%"><col style="width:10%"><col style="width:16%"><col style="width:17%"><col style="width:6%"></colgroup>
+        <thead><tr><th>Nr.</th><th>Descriere lucrare</th><th class="num">Cantitate</th><th>Unitate</th><th class="num">Preț unitar</th><th class="num">Total (lei)</th><th></th></tr></thead>
+        <tbody id="workBody">
+          <tr class="group-row"><td colspan="7"><input value="LUCRĂRI DE DEMOLARE ȘI DEMONTARE" aria-label="Denumire categorie"></td></tr>
+          <tr class="work-row"><td class="index"></td><td><input class="description" value="Spargere pereți din cărămidă"></td><td><input class="qty" type="number" min="0" step="0.01" value="12.83"></td><td><select class="unit"><option>m²</option><option>m³</option><option>ml</option><option>buc.</option><option>oră</option><option>set</option><option>lucrare</option></select></td><td><input class="price" type="number" min="0" step="0.01" placeholder="0,00"></td><td class="total">0,00</td><td class="del-cell"><button class="del" onclick="removeWork(this)" aria-label="Șterge">×</button></td></tr>
+          <tr class="work-row"><td class="index"></td><td><input class="description" value="Spargere zid din rigips"></td><td><input class="qty" type="number" min="0" step="0.01" placeholder="Cant."></td><td><select class="unit"><option>m²</option><option>m³</option><option>ml</option><option>buc.</option><option>oră</option><option>set</option><option>lucrare</option></select></td><td><input class="price" type="number" min="0" step="0.01" placeholder="0,00"></td><td class="total">0,00</td><td class="del-cell"><button class="del" onclick="removeWork(this)">×</button></td></tr>
+          <tr class="work-row"><td class="index"></td><td><input class="description" value="Demontare parchet (2 straturi)"></td><td><input class="qty" type="number" min="0" step="0.01" placeholder="Cant."></td><td><select class="unit"><option>m²</option><option>m³</option><option>ml</option><option>buc.</option><option>oră</option><option>set</option><option>lucrare</option></select></td><td><input class="price" type="number" min="0" step="0.01" placeholder="0,00"></td><td class="total">0,00</td><td class="del-cell"><button class="del" onclick="removeWork(this)">×</button></td></tr>
+          <tr class="work-row"><td class="index"></td><td><input class="description" value="Demontare gresie și faianță"></td><td><input class="qty" type="number" min="0" step="0.01" value="34.88"></td><td><select class="unit"><option>m²</option><option>m³</option><option>ml</option><option>buc.</option><option>oră</option><option>set</option><option>lucrare</option></select></td><td><input class="price" type="number" min="0" step="0.01" placeholder="0,00"></td><td class="total">0,00</td><td class="del-cell"><button class="del" onclick="removeWork(this)">×</button></td></tr>
+          <tr class="work-row"><td class="index"></td><td><input class="description" value="Spargere / decopertare baie"></td><td><input class="qty" type="number" min="0" step="0.01" value="23.90"></td><td><select class="unit"><option>m²</option><option>m³</option><option>ml</option><option>buc.</option><option>oră</option><option>set</option><option>lucrare</option></select></td><td><input class="price" type="number" min="0" step="0.01" placeholder="0,00"></td><td class="total">0,00</td><td class="del-cell"><button class="del" onclick="removeWork(this)">×</button></td></tr>
+
+          <tr class="group-row"><td colspan="7"><input value="LUCRĂRI DE GLET ȘI ZUGRĂVIT" aria-label="Denumire categorie"></td></tr>
+          <tr class="work-row"><td class="index"></td><td><input class="description" value="Aplicare glet în 2 straturi"></td><td><input class="qty" type="number" min="0" step="0.01" value="91.77"></td><td><select class="unit"><option>m²</option><option>m³</option><option>ml</option><option>buc.</option><option>oră</option><option>set</option><option>lucrare</option></select></td><td><input class="price" type="number" min="0" step="0.01" placeholder="0,00"></td><td class="total">0,00</td><td class="del-cell"><button class="del" onclick="removeWork(this)">×</button></td></tr>
+          <tr class="work-row"><td class="index"></td><td><input class="description" value="Șlefuire suprafețe"></td><td><input class="qty" type="number" min="0" step="0.01" value="91.77"></td><td><select class="unit"><option>m²</option><option>m³</option><option>ml</option><option>buc.</option><option>oră</option><option>set</option><option>lucrare</option></select></td><td><input class="price" type="number" min="0" step="0.01" placeholder="0,00"></td><td class="total">0,00</td><td class="del-cell"><button class="del" onclick="removeWork(this)">×</button></td></tr>
+          <tr class="work-row"><td class="index"></td><td><input class="description" value="Aplicare amorsă"></td><td><input class="qty" type="number" min="0" step="0.01" value="91.77"></td><td><select class="unit"><option>m²</option><option>m³</option><option>ml</option><option>buc.</option><option>oră</option><option>set</option><option>lucrare</option></select></td><td><input class="price" type="number" min="0" step="0.01" placeholder="0,00"></td><td class="total">0,00</td><td class="del-cell"><button class="del" onclick="removeWork(this)">×</button></td></tr>
+          <tr class="work-row"><td class="index"></td><td><input class="description" value="Aplicare lavabilă în 2 straturi"></td><td><input class="qty" type="number" min="0" step="0.01" value="91.77"></td><td><select class="unit"><option>m²</option><option>m³</option><option>ml</option><option>buc.</option><option>oră</option><option>set</option><option>lucrare</option></select></td><td><input class="price" type="number" min="0" step="0.01" placeholder="0,00"></td><td class="total">0,00</td><td class="del-cell"><button class="del" onclick="removeWork(this)">×</button></td></tr>
+          <tr class="work-row"><td class="index"></td><td><input class="description" value="Montare colțare"></td><td><input class="qty" type="number" min="0" step="0.01" placeholder="Cant."></td><td><select class="unit"><option>ml</option><option>m²</option><option>buc.</option><option>oră</option><option>set</option><option>lucrare</option></select></td><td><input class="price" type="number" min="0" step="0.01" placeholder="0,00"></td><td class="total">0,00</td><td class="del-cell"><button class="del" onclick="removeWork(this)">×</button></td></tr>
+          <tr class="work-row"><td class="index"></td><td><input class="description" value="Reparații după electrician"></td><td><input class="qty" type="number" min="0" step="0.01" placeholder="Cant."></td><td><select class="unit"><option>lucrare</option><option>m²</option><option>ml</option><option>buc.</option><option>oră</option><option>set</option></select></td><td><input class="price" type="number" min="0" step="0.01" placeholder="0,00"></td><td class="total">0,00</td><td class="del-cell"><button class="del" onclick="removeWork(this)">×</button></td></tr>
+
+          <tr class="group-row"><td colspan="7"><input value="LUCRĂRI DE MONTAJ GRESIE ȘI FAIANȚĂ" aria-label="Denumire categorie"></td></tr>
+          <tr class="work-row"><td class="index"></td><td><input class="description" value="Montaj gresie"></td><td><input class="qty" type="number" min="0" step="0.01" placeholder="Cant."></td><td><select class="unit"><option>m²</option><option>ml</option><option>buc.</option><option>oră</option><option>set</option><option>lucrare</option></select></td><td><input class="price" type="number" min="0" step="0.01" placeholder="0,00"></td><td class="total">0,00</td><td class="del-cell"><button class="del" onclick="removeWork(this)">×</button></td></tr>
+          <tr class="work-row"><td class="index"></td><td><input class="description" value="Montaj faianță"></td><td><input class="qty" type="number" min="0" step="0.01" placeholder="Cant."></td><td><select class="unit"><option>m²</option><option>ml</option><option>buc.</option><option>oră</option><option>set</option><option>lucrare</option></select></td><td><input class="price" type="number" min="0" step="0.01" placeholder="0,00"></td><td class="total">0,00</td><td class="del-cell"><button class="del" onclick="removeWork(this)">×</button></td></tr>
+          <tr class="work-row"><td class="index"></td><td><input class="description" value="Executare tăieturi la 45°"></td><td><input class="qty" type="number" min="0" step="0.01" placeholder="Cant."></td><td><select class="unit"><option>ml</option><option>m²</option><option>buc.</option><option>oră</option><option>set</option><option>lucrare</option></select></td><td><input class="price" type="number" min="0" step="0.01" placeholder="0,00"></td><td class="total">0,00</td><td class="del-cell"><button class="del" onclick="removeWork(this)">×</button></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="add-controls">
+      <button class="btn btn-light" onclick="addWork()">＋ Adaugă manoperă</button>
+      <button class="btn btn-light" onclick="addGroup()">＋ Adaugă categorie</button>
+    </div>
+
+    <section class="summary">
+      <div class="summary-line"><span>Subtotal manoperă</span><strong id="subtotal">0,00 lei</strong></div>
+      <div class="summary-line"><label for="discount">Reducere (lei)</label><input id="discount" type="number" min="0" step="0.01" value="0"></div>
+      <div class="summary-line grand"><span>TOTAL OFERTĂ</span><strong id="grandTotal">0,00 lei</strong></div>
+    </section>
+
+    <section class="notes"><label for="notes">OBSERVAȚII</label><textarea id="notes" placeholder="Note suplimentare, dacă este cazul..."></textarea></section>
+    <section class="signature-block">
+      <div class="signature-title">SEMNĂTURA EXECUTANTULUI</div>
+      <div class="signature-pad-wrap"><canvas id="executorSignature" aria-label="Spațiu pentru semnătura executantului"></canvas></div>
+      <div class="signature-tools">
+        <button type="button" class="btn btn-light" onclick="clearSignature()">Șterge semnătura</button>
+      </div>
+      <div class="signature-caption">Semnează în chenar folosind degetul, un stylus sau mouse-ul. Semnătura va apărea și în PDF-ul tipărit.</div>
+    </section>
+    <div class="signatures"><div><strong>STEFAN PREMIUM CONSTRUCT</strong><br>Executant</div><div><strong>BENEFICIAR</strong><br>Semnătură</div></div>
+    <div class="footer-note">Stefan Premium Construct · CIF 49591155</div>
+  </main>
+</div>
+<script>
+const body=document.getElementById('workBody');
+const money=n=>(Number(n)||0).toLocaleString('ro-RO',{minimumFractionDigits:2,maximumFractionDigits:2});
+function update(){
+ let sum=0,idx=0;
+ body.querySelectorAll('tr.work-row').forEach(tr=>{
+  idx++;tr.querySelector('.index').textContent=idx;
+  const q=parseFloat(tr.querySelector('.qty').value)||0;
+  const p=parseFloat(tr.querySelector('.price').value)||0;
+  const total=q*p;sum+=total;tr.querySelector('.total').textContent=money(total);
+ });
+ const discount=Math.max(0,parseFloat(document.getElementById('discount').value)||0);
+ document.getElementById('subtotal').textContent=money(sum)+' lei';
+ document.getElementById('grandTotal').textContent=money(Math.max(0,sum-discount))+' lei';
+}
+function removeWork(btn){btn.closest('tr').remove();update();}
+function addWork(){
+ const tr=document.createElement('tr');tr.className='work-row';
+ tr.innerHTML='<td class="index"></td><td><input class="description" placeholder="Denumirea manoperei"></td><td><input class="qty" type="number" min="0" step="0.01" placeholder="Cantitate"></td><td><select class="unit"><option>m²</option><option>m³</option><option>ml</option><option>buc.</option><option>oră</option><option>set</option><option>lucrare</option></select></td><td><input class="price" type="number" min="0" step="0.01" placeholder="0,00"></td><td class="total">0,00</td><td class="del-cell"><button class="del" onclick="removeWork(this)">×</button></td>';
+ body.appendChild(tr);tr.querySelector('.description').focus();update();
+}
+function addGroup(){
+ const tr=document.createElement('tr');tr.className='group-row';
+ tr.innerHTML='<td colspan="7"><input aria-label="Denumire categorie" placeholder="Denumirea categoriei"></td>';
+ body.appendChild(tr);tr.querySelector('input').focus();
+}
+function resetForm(){
+ if(!confirm('Sigur dorești să resetezi oferta?'))return;
+ document.querySelectorAll('.price').forEach(x=>x.value='');
+ document.getElementById('discount').value='0';
+ document.querySelectorAll('.meta input').forEach((x,i)=>{if(i!==1)x.value='';});
+ document.getElementById('notes').value='';update();
+}
+body.addEventListener('input',update);
+body.addEventListener('change',update);
+document.getElementById('discount').addEventListener('input',update);
+
+// Semnătură desenată: funcționează cu mouse, stylus și ecran tactil.
+const sigCanvas=document.getElementById('executorSignature');
+const sigCtx=sigCanvas.getContext('2d');
+let sigDrawing=false, sigHasInk=false, sigLast=null;
+function resizeSignatureCanvas(){
+ const rect=sigCanvas.getBoundingClientRect();
+ const ratio=Math.max(window.devicePixelRatio||1,1);
+ const snapshot=sigHasInk?sigCanvas.toDataURL():null;
+ sigCanvas.width=Math.round(rect.width*ratio);
+ sigCanvas.height=Math.round(rect.height*ratio);
+ sigCtx.setTransform(ratio,0,0,ratio,0,0);
+ sigCtx.lineWidth=2.1;sigCtx.lineCap='round';sigCtx.lineJoin='round';sigCtx.strokeStyle='#17191c';
+ if(snapshot){const img=new Image();img.onload=()=>sigCtx.drawImage(img,0,0,rect.width,rect.height);img.src=snapshot;}
+}
+function signaturePoint(e){
+ const r=sigCanvas.getBoundingClientRect();
+ return {x:e.clientX-r.left,y:e.clientY-r.top};
+}
+sigCanvas.addEventListener('pointerdown',e=>{
+ e.preventDefault();sigDrawing=true;sigHasInk=true;sigLast=signaturePoint(e);
+ try{sigCanvas.setPointerCapture(e.pointerId)}catch(_){}
+ sigCtx.beginPath();sigCtx.moveTo(sigLast.x,sigLast.y);sigCtx.lineTo(sigLast.x+.1,sigLast.y+.1);sigCtx.stroke();
+});
+sigCanvas.addEventListener('pointermove',e=>{
+ if(!sigDrawing)return;e.preventDefault();
+ const p=signaturePoint(e);sigCtx.beginPath();sigCtx.moveTo(sigLast.x,sigLast.y);sigCtx.lineTo(p.x,p.y);sigCtx.stroke();sigLast=p;
+});
+function stopSignature(){sigDrawing=false;sigLast=null;}
+sigCanvas.addEventListener('pointerup',stopSignature);
+sigCanvas.addEventListener('pointercancel',stopSignature);
+sigCanvas.addEventListener('lostpointercapture',stopSignature);
+function clearSignature(){sigCtx.clearRect(0,0,sigCanvas.width,sigCanvas.height);sigHasInk=false;}
+window.addEventListener('resize',resizeSignatureCanvas);
+resizeSignatureCanvas();
+
+document.getElementById('offerDate').value=new Date().toISOString().slice(0,10);
+update();
+</script>
+</body>
+</html>

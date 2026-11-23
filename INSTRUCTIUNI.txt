@@ -1,0 +1,23 @@
+STEFAN PREMIUM CONSTRUCT – GENERATOR OFERTĂ A4
+
+Fișiere:
+- main.html – generatorul interactiv de ofertă
+- logo-spc.png – logo decupat, mărit la rezoluție înaltă și cu fundal transparent
+
+Logo:
+- Fundalul alb a fost eliminat (PNG transparent).
+- Spațiul alb inutil din jurul siglei a fost decupat.
+- Imaginea a fost redimensionată la rezoluție înaltă pentru afișare și tipărire clară.
+- Logo-ul este afișat mai mare pe desktop și optimizat separat pentru telefon și A4.
+
+Publicare GitHub Pages:
+1. Încarcă main.html și logo-spc.png în rădăcina repository-ului.
+2. Activează GitHub Pages din Settings > Pages.
+3. Pentru deschiderea automată la rădăcina site-ului, redenumește main.html în index.html. Dacă îl păstrezi main.html, accesează /main.html.
+
+Utilizare:
+- Modifică direct descrierea, cantitatea, unitatea și prețul în tabel.
+- Totalurile se calculează automat.
+- Poți adăuga manopere și categorii.
+- Semnătura executantului se poate desena pe ecran și se include la tipărire/PDF.
+- Tipărire: A4 portret, Salvare ca PDF.
